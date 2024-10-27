@@ -12,7 +12,7 @@ def missing_elements(my_list: list) -> list:
     missing_nums = []
     for num in my_list:
         if num != last_num + 1:
-            missing_nums.extend(list(range(last_num + 1), num))
+            missing_nums.extend(list(range(last_num + 1, num)))
         last_num = num
     return missing_nums
 """
