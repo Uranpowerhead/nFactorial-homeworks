@@ -58,7 +58,7 @@ Example:
 odd_squares(10) -> {1, 9, 25, 49, 81}
 """
 def odd_squares(n: int) -> set[int]:
-    return {i**2 for i in range(1, n) if i % 2 != 0}
+    return {i**2 for i in range(n + 1) if i % 2 != 0}
 
 """
 Exercise-7: Dictionary Comprehension to Map Indices
@@ -89,9 +89,11 @@ list(fibonacci_gen(10)) -> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 """
 def fibonacci_gen(n: int) -> Generator[int, None, None]:
     num1, num2 = 0, 1
+    counter = 0
     for i in range(n):
         yield num1
         num1, num2 = num2, num1 + num2
+        counter += 1
 
 """
 Exercise-10: Dictionary Comprehension to Invert a Dictionary
@@ -192,7 +194,7 @@ Example:
 list(primes_gen(10)) -> [2, 3, 5, 7]
 """
 def primes_gen(n: int) -> Generator[int, None, None]:
-    return (x for x in range(2, n) if all(x % i != 0 for i in range(2, int(x ** 0.5) + 1)))
+    return (x for x in range(2, n + 1) if all(x % i != 0 for i in range(2, int(x ** 0.5) + 1)))
 
 """
 Exercise-20: Dictionary Comprehension to Convert List to Dict
