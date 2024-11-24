@@ -112,8 +112,7 @@ factorial_reduce(5) -> 120
 """
 
 def factorial_reduce(n: int) -> int:
-    def factorial_reduce(n: int) -> int:
-        return reduce(lambda x, y: x * y, range(1, n + 1))
+    return reduce(lambda x, y: x * y, range(1, n + 1))
 
 """
 Exercise-9: Function Memoization
