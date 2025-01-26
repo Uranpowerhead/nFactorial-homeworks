@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кітап.kz - Список</title>
+</head>
+<body>
+    {% if is_detail %}
+
+        <p>Название: {{ books[0].title }}</p>
+        <p>Автор: {{ books[0].author }}</p>
+        <p>Год издания:{{ books[0].year }}</p>
+        <p>Страниц: {{ books[0].total_pages }}</p>
+        <p>Жанр: {{ books[0].genre }}</p>
+        <p><form method="post" action="/books/{{ books[0].id }}/delete" style="display: inline;">
+    <button type="submit" onclick="return confirm('Подтвердите удаление книги, нажатием ОК');">Удалить</button>
+</form></p>
+        <a href="/books">Вернуться к списку</a>
+
+    {% else %}
+
+        <h1>Кітап.kz - Список</h1>
+        <a href="/books/new">Добавить книгу</a>
+        <ul>
+            {% for book in books %}
+            <li>
+                <a href="/books/{{ book.id }}">{{ book.title }}</a> Автор: {{ book.author }}
+                (Год издания: {{ book.year }}, Жанр: {{ book.genre }}, Страниц: {{ book.total_pages }})
+            </li>
+            {% endfor %}
+
+        </ul>
+        <div>
+            {% if has_prev %}
+            <a href="/books?page={{ page - 1 }}">Назад</a>
+            {% endif %}
+            {% if has_next %}
+            <a href="/books?page={{ page + 1 }}">Далее</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
