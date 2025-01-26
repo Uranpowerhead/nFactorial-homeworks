@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Кітап.kz - Список</title>
+</head>
+
+<body>
+    <h1>Список книг</h1>
+    <a href="/books/new">Добавить книгу</a>
+    <ul>
+        {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> - {{ book.author }} ({{ book.year }})
+            <br>Жанр: {{ book.genre }} | Страниц: {{ book.total_pages }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
